@@ -16,7 +16,7 @@ static void ClearLine(){
     Console.SetCursorPosition(0, Console.CursorTop - 1);
 }
 
-void roomEntry() {
+void Entrypoint() {
     Console.WriteLine("");
     Console.WriteLine("you are on room #" + RoomNumber);
     Console.WriteLine("3 doors lie ahead...");
@@ -27,37 +27,31 @@ void roomEntry() {
     if (userRoom > 3) {
         ClearLine();
         Console.WriteLine("that's not a door, try again");
-        Task.Delay(2000);
-        ClearLine();
-        userRoom = Convert.ToInt32(Console.ReadLine());
+        Thread.Sleep(2000);
+        Console.Clear();
+        Entrypoint();
+    }
+    else {
+        DoorChoice();
     }
 }
 
 void DoorChoice() {
     GhostRoom = rnd.Next(1,3);
-    Console.WriteLine("ghostroom" +GhostRoom);
-   
+    if (userRoom == GhostRoom) {
+        Console.WriteLine("ghost");
+    }
+    else {
+        RoomNumber = RoomNumber +1;
+        Console.WriteLine("pass");
+        Thread.Sleep(2000);
+        Console.WriteLine("Let's keep going");
+        Thread.Sleep(2000);
+        Console.Clear();
+        Entrypoint();
+    }
 }
 
-//main code
-roomEntry(); //room 1
-//DoorChoice();
-/*
-roomEntry(); //room 2
-DoorChoice();
-roomEntry(); //room 3
-DoorChoice();
-roomEntry(); //room 4
-DoorChoice();
-roomEntry(); //room 5
-DoorChoice();
-roomEntry(); //room 6
-DoorChoice();
-roomEntry(); //room 7
-DoorChoice();
-roomEntry(); //room 8
-DoorChoice();
-roomEntry(); //room 9 
-DoorChoice();
-roomEntry(); //room 10
-*/
+//Start function loop
+Entrypoint(); 
+
