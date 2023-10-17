@@ -58,6 +58,8 @@ while (Jnumber <= 10)  {
 
 if (Jnumber > 10) {
     Console.WriteLine("You made it to class on time and got cookies! ");
+    Console.Write("Press <Enter> to exit... ");
+        while (Console.ReadKey().Key != ConsoleKey.Enter) {}
 }
 else { 
     Console.WriteLine("Let's try again tommorow");
