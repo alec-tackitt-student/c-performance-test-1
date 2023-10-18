@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information'
-using System.Security.Cryptography.X509Certificates;
+
 
 int Jnumber = 1;
 int userTurn;
@@ -39,6 +39,7 @@ while (Jnumber <= 10)  {
     WrongTurn = rnd.Next(1,3);
     if (userTurn == WrongTurn) {
         Console.WriteLine("You made a wrong turn and got a tardy :( ");
+        break;
        
     }
     else {
@@ -56,6 +57,7 @@ while (Jnumber <= 10)  {
     }
 }
 
+//after loop, either win or loose
 if (Jnumber > 10) {
     Console.WriteLine("You made it to class on time and got cookies! ");
     Console.Write("Press <Enter> to exit... ");
