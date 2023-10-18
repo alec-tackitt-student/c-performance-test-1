@@ -19,14 +19,19 @@ static void ClearLine(){
     Console.Write(new string(' ', Console.WindowWidth)); 
     Console.SetCursorPosition(0, Console.CursorTop - 1);
 }
-
-//main loop
-while (Jnumber <= 10)  {
+//greeting method
+void greeting() {
     Console.WriteLine("");
     Console.WriteLine("you are on Junction #" + Jnumber);
     Console.WriteLine("3 halls lie ahead...");
     Console.WriteLine("only one will get you to class on time");
     Console.WriteLine("Which will you choose? (Type 1, 2, or 3)");
+
+}
+
+//main loop
+while (Jnumber <= 10)  {
+    greeting();
     userTurn = Convert.ToInt32(Console.ReadLine());
 
     if (userTurn > 3) {
